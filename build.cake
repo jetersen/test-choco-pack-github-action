@@ -9,7 +9,7 @@ Task("ChocoPack")
     OutputDirectory = chocoPackDir,
   };
 
-  ChocolateyPack("./helloworld/helloworld.nuspec", chocolateyPackSettings);
+  ChocolateyPack(@".\helloworld\helloworld.nuspec", chocolateyPackSettings);
 });
 
 RunTarget(target);
