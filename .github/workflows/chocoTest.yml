@@ -15,6 +15,10 @@ jobs:
       - name: DotNet Tool Restore
         run: dotnet tool restore
       - name: Choco Pack
-        run: Measure-Command { choco pack .\helloworld\helloworld.nuspec | Write-Host }
+        run: Measure-Command { choco pack .\helloworld\helloworld.nuspec | Write-Host }; Remove-Item *.nupkg
+      - name: Choco.exe Pack
+        run: Measure-Command { choco.exe pack .\helloworld\helloworld.nuspec | Write-Host }; Remove-Item *.nupkg
+      - name: Chocolatey.exe Pack
+        run: Measure-Command { chocolatey.exe pack .\helloworld\helloworld.nuspec | Write-Host }; Remove-Item *.nupkg
       - name: Cake Pack
         run: dotnet cake
