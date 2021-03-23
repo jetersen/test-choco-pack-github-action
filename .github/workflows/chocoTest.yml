@@ -11,6 +11,7 @@ jobs:
         os: [windows-2019,windows-2016]
     name: test
     steps:
+      - uses: actions/checkout@v2
       - name: DotNet Tool Restore
         run: dotnet tool restore
       - name: Choco Pack
