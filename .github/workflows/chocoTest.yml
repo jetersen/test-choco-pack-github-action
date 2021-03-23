@@ -1,0 +1,19 @@
+name: Choco Pack Test
+
+on:
+  push:
+
+jobs:
+  release:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [windows-2019,windows-2016]
+    name: test
+    steps:
+      - name: DotNet Tool Restore
+        run: dotnet tool restore
+      - name: Choco Pack
+        run: Measure-Command { choco pack helloworld\helloworld.nuspec | Write-Host }
+      - name: Cake Pack
+        run: dotnet cake
